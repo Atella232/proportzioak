@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="eu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#244c3d">
+    <meta name="description" content="Ikasi proportzionaltasun zuzena eta alderantzizkoa bereizten: eguneroko 30 egoera, berehalako zuzenketa eta adibide argiak. Guztia euskaraz.">
+    <title>Proportzioak · Egin lotura</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#practice">Joan ariketara</a>
+    <header class="site-header wrap">
+      <a class="brand" href="./" aria-label="Proportzioak, hasiera">
+        <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M8 9h7v7H8zM21 20h7v7h-7z" fill="currentColor"/><path d="m9 27 18-18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        proportzioak<span class="brand-dot">.</span>
+      </a>
+      <nav aria-label="Nabigazio nagusia">
+        <a class="nav-active" href="#practice">Praktikatu</a>
+        <button class="text-button" type="button" data-open-guide>Nola dabil? <span aria-hidden="true">↗</span></button>
+      </nav>
+      <span class="subject-tag"><span aria-hidden="true">✳</span> MATEMATIKA EGUNERO</span>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow"><span class="small-line"></span> PENTSATU. LOTU. ULERTU.</p>
+          <h1 id="hero-title">Bi magnitude.<br><em>Lotura bat.</em></h1>
+          <p class="hero-description">Gehiago beti al da gehiago? Aztertu eguneroko egoerak<br class="desktop-break"> eta aurkitu zer lotura dagoen bi magnitudeen artean.</p>
+        </div>
+        <div class="hero-aside" aria-hidden="true">
+          <svg class="orbit-art" viewBox="0 0 200 132" fill="none">
+            <path d="M20 112H182M20 112V10" stroke="#9da99b" stroke-width="1"/>
+            <path d="M20 87H182M20 62H182M20 37H182M60 112V10M100 112V10M140 112V10M180 112V10" stroke="#e0e5d9" stroke-width="1"/>
+            <path d="m26 105 137-84" stroke="#315d47" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 20c10 65 47 75 138 78" stroke="#9ca95d" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="100" cy="60" r="7" fill="#ddec9b" stroke="#315d47" stroke-width="2"/>
+            <circle cx="60" cy="78" r="5" fill="#315d47"/>
+            <circle cx="140" cy="96" r="5" fill="#9ca95d"/>
+          </svg>
+          <p>30 egoera. 2 aukera.<br><strong>Ikasteko modu bat.</strong></p>
+        </div>
+      </section>
+
+      <section class="practice-layout" id="practice" aria-label="Proportzionaltasun ariketak">
+        <div class="exercise-column">
+          <div class="section-heading">
+            <h2><span class="section-number">01</span> Egin lotura</h2>
+            <button class="text-button restart-button" type="button" data-restart><span aria-hidden="true">↻</span> Berriro hasi</button>
+          </div>
+
+          <article class="question-card" id="question-card" aria-labelledby="question-title">
+            <div class="question-meta"><span class="category" id="category"></span><span class="case-count" id="case-count"></span></div>
+            <h3 id="question-title" tabindex="-1"></h3>
+            <p class="question-prompt" id="question-prompt"></p>
+            <div class="answer-area">
+              <p class="answer-label">Zein da bi magnitudeen arteko erlazioa?</p>
+              <div class="answer-options">
+                <button class="answer-button" type="button" data-answer="direct">
+                  <span class="answer-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M6 5v21h21M10 21 24 7m-8 0h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span>Proportzionaltasun<br><strong>zuzena</strong></span><kbd>1</kbd>
+                </button>
+                <button class="answer-button" type="button" data-answer="inverse">
+                  <span class="answer-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M6 5v21h21M10 7c1 11 5 14 15 14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span>Alderantzizko<br><strong>proportzionaltasuna</strong></span><kbd>2</kbd>
+                </button>
+              </div>
+            </div>
+            <section class="feedback" id="feedback" aria-labelledby="feedback-title" hidden>
+              <div class="feedback-heading"><span class="feedback-symbol" id="feedback-symbol" aria-hidden="true"></span><div><p class="feedback-kicker" id="feedback-kicker"></p><h4 id="feedback-title"></h4></div></div>
+              <p id="explanation"></p>
+              <div class="example-box"><div class="example-heading"><span>IKUS DEZAGUN ADIBIDE BAT</span><span aria-hidden="true">↘</span></div><table id="example-table"></table><p id="example-note"></p><div class="constant" id="constant"></div></div>
+            </section>
+            <div class="question-footer">
+              <p id="question-hint"><span class="hint-dot" aria-hidden="true"></span> Aukeratu erantzun bat azalpena ikusteko.</p>
+              <button class="primary-button" id="next-button" type="button" hidden>Hurrengoa <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+
+          <section class="results-card" id="results-card" aria-labelledby="results-title" hidden>
+            <p class="eyebrow">EGINDA! JARRAITU IKASTEN.</p>
+            <div class="results-score" id="results-score"></div>
+            <h3 id="results-title" tabindex="-1">Lotura guztiak aztertu dituzu.</h3>
+            <p id="results-message"></p>
+            <div id="mistake-review"><h4>Errepasatzeko egoerak</h4><p>Sakatu egoera bat haren azalpena berriro irakurtzeko.</p><div class="mistake-list" id="mistake-list"></div></div>
+            <button class="primary-button" type="button" data-restart>Beste saio bat hasi <span aria-hidden="true">↻</span></button>
+          </section>
+
+          <div class="case-navigation">
+            <div class="case-navigation-heading"><h3>30 egoera, pausoz pauso</h3><span>Edozeinetara joan zaitezke</span></div>
+            <div class="case-grid" id="case-grid" role="group" aria-label="Aukeratu egoera"></div>
+            <div class="legend"><span><i class="legend-dot current"></i> Unekoa</span><span><i class="legend-dot correct"></i> Zuzena</span><span><i class="legend-dot incorrect"></i> Okerra</span><span><i class="legend-dot"></i> Erantzun gabe</span></div>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-label="Zure aurrerapena eta laguntza">
+          <section class="progress-card">
+            <div class="sidebar-heading"><h2>Zure ibilbidea</h2><span aria-hidden="true">↗</span></div>
+            <div class="progress-number"><strong id="answered-count">0</strong><span>/ 30</span></div>
+            <p class="muted">egoera erantzunda</p>
+            <progress id="progress" value="0" max="30" aria-label="Erantzundako egoerak">0 / 30</progress>
+            <div class="score-row"><span><i class="score-dot correct"></i> Zuzenak</span><strong id="correct-count">0</strong></div>
+            <div class="score-row"><span><i class="score-dot incorrect"></i> Okerrak</span><strong id="incorrect-count">0</strong></div>
+            <p class="save-note" id="save-note"><span aria-hidden="true">✓</span> Aurrerapena automatikoki gordetzen da.</p>
+            <button class="text-button results-link" id="results-button" type="button" hidden>Emaitzak ikusi <span aria-hidden="true">→</span></button>
+          </section>
+          <section class="tip-card">
+            <span class="tip-icon" aria-hidden="true">✳</span>
+            <p class="eyebrow">PENTSATZEKO PISTA</p>
+            <h2>Eta bikoiztuko<br>bagenu?</h2>
+            <p>Magnitude bat bikoiztean, zer gertatzen da bestearekin?</p>
+            <div class="tip-relation"><span>× 2</span><span aria-hidden="true">→</span><span>× 2 <small>ala</small> ÷ 2 ?</span></div>
+            <p class="tip-small">Begiratu zer mantentzen den konstante: zatidura ala biderkadura.</p>
+            <button class="text-button" type="button" data-open-guide>Kontzeptuak gogoratu <span aria-hidden="true">↗</span></button>
+          </section>
+          <p class="sidebar-note">Hemen akatsak ere baliagarriak dira.<br>Irakurri azalpena eta egin hurrengo lotura.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap"><span class="footer-brand">proportzioak.</span><p>Eguneroko matematikari beste begirada bat.</p><span>Euskaraz, noski. <span aria-hidden="true">↗</span></span></footer>
+    <div class="sr-only" id="announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog id="guide-dialog" aria-labelledby="guide-title">
+      <div class="dialog-top"><p class="eyebrow">GOGORATU OINARRIAK</p><button class="close-button" type="button" data-close-dialog aria-label="Itxi laguntza">×</button></div>
+      <h2 id="guide-title">Nolakoa da lotura?</h2>
+      <div class="guide-section"><span class="guide-number">01</span><div><h3>Proportzionaltasun zuzena</h3><p>Magnitude bat zenbaki batez biderkatzean, bestea ere zenbaki beraz biderkatzen da. <strong>Zatidura konstantea da: y / x = k.</strong></p><p class="guide-example">Adibidez: sagarrak 3 €/kg badira, 2 kg-k 6 € balio dute, eta 4 kg-k, 12 €.</p></div></div>
+      <div class="guide-section"><span class="guide-number">02</span><div><h3>Alderantzizko proportzionaltasuna</h3><p>Magnitude bat zenbaki batez biderkatzean, bestea zenbaki beraz zatitzen da. <strong>Biderkadura konstantea da: x · y = k.</strong></p><p class="guide-example">Adibidez: 120 gozoki berdin banatuta, 4 lagunek 30na jasotzen dituzte; 8 lagunek, 15na.</p></div></div>
+      <p class="guide-warning">Kontuz: bi magnitudeak handitzea, edo bat handitu eta bestea txikitzea, ez da nahikoa. Egiaztatu zatidura edo biderkadura konstantea dela.</p>
+      <button class="primary-button" type="button" data-close-dialog>Ulertuta, ekin! <span aria-hidden="true">→</span></button>
+    </dialog>
+    <dialog id="restart-dialog" aria-labelledby="restart-title">
+      <div class="dialog-top"><p class="eyebrow">SAIO BERRIA</p><button class="close-button" type="button" data-close-dialog aria-label="Utzi saio berria">×</button></div>
+      <h2 id="restart-title">Berriro hasiko gara?</h2>
+      <p>Oraingo emaitzak ezabatu eta 30 egoerak beste ordena batean agertuko dira.</p>
+      <div class="dialog-actions"><button class="secondary-button" type="button" data-close-dialog>Jarraitu oraingo saioarekin</button><button class="primary-button" id="confirm-restart" type="button">Bai, berriro hasi <span aria-hidden="true">↻</span></button></div>
+    </dialog>
+    <noscript><div class="noscript">Ariketak egiteko, aktibatu JavaScript zure nabigatzailean.</div></noscript>
+  </body>
+</html>
