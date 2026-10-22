@@ -1,10 +1,10 @@
 {
   "name": "proportzioak",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "Proportzionaltasuna lantzeko 30 egoera interaktibo euskaraz",
   "scripts": {
-    "check": "node --check app.js && node --check questions.js && node --test tests/content.test.js"
+    "check": "node --check app.js && node --check questions.js && node --check problems.js && node --test tests/content.test.js"
   }
 }

@@ -7,6 +7,7 @@ Proportzionaltasun zuzena eta alderantzizkoa bereizteko webgune interaktiboa, **
 - Eguneroko **30 egoera**: 15 proportzionaltasun zuzenekoak eta 15 alderantzizkoak.
 - Bi erantzun aukeran, berehalako zuzenketa eta egoera bakoitzaren azalpena.
 - Hiru balio pare dituen adibide taula, adibide landua eta konstantearen formula.
+- Egoera bakoitzeko problema bat: botoia sakatzean, hiruko erregelarekin pausoz pauso ebatzita ikusten da, datu taula, erlazioa, eragiketak eta unitatedun erantzuna barne.
 - Aurrerapena, zuzenen eta okerren kopurua, eta amaierako emaitzak.
 - Okerren azalpenak errepasatzeko aukera eta egoerak nahastuta berriro hasteko aukera.
 - Nabigatzailean automatikoki gordetako aurrerapena. Datuak ez dira zerbitzari batera bidaltzen.
@@ -30,6 +31,7 @@ Ondoren, ireki `http://localhost:8000`. Ez da instalaziorik edo eraikuntza pauso
 - `styles.css`: diseinu moldagarria.
 - `app.js`: saioa, erantzunen zuzenketa, nabigazioa eta aurrerapenaren gordetzea.
 - `questions.js`: 30 egoeren edukia.
+- `problems.js`: 30 problemaren enuntziatuak, datuak eta erantzunak.
 - `tests/content.test.js`: edukien egitura, oreka eta proportzionaltasun matematikoa egiaztatzeko probak.
 
 ## Egiaztatu

@@ -1,4 +1,5 @@
 import { questions } from './questions.js';
+import { problems } from './problems.js';
 
 const STORAGE_KEY = 'proportzioak.saioa.v1';
 const labels = { direct: 'Proportzionaltasun zuzena', inverse: 'Alderantzizko proportzionaltasuna' };
@@ -110,6 +111,63 @@ function renderExample(question) {
   table.replaceChildren(caption, head, body);
   $('#example-note').textContent = question.exampleNote;
   $('#constant').textContent = question.constant;
+  renderProblem(question);
+}
+
+function renderProblem(question) {
+  const problem = problems[question.id];
+  const format = number => number.toLocaleString('eu-ES', { maximumFractionDigits: 6 });
+  $('#problem-prompt').textContent = problem.prompt;
+  $('#problem-solution').hidden = true;
+  $('#solution-toggle').setAttribute('aria-expanded', 'false');
+  $('#solution-toggle-label').textContent = 'Ikusi ebazpena pausoz pauso';
+  $('#solution-toggle .toggle-symbol').textContent = '+';
+
+  const caption = document.createElement('caption');
+  caption.className = 'sr-only';
+  caption.textContent = `${question.title}: problemaren datuak eta ezezaguna`;
+  const head = document.createElement('thead');
+  const header = document.createElement('tr');
+  question.example.headers.forEach(label => {
+    const cell = document.createElement('th');
+    cell.scope = 'col';
+    cell.textContent = label;
+    header.append(cell);
+  });
+  head.append(header);
+  const body = document.createElement('tbody');
+  [[problem.knownX, problem.knownY], [problem.targetX, 'x']].forEach(row => {
+    const tr = document.createElement('tr');
+    row.forEach(value => {
+      const cell = document.createElement('td');
+      cell.textContent = typeof value === 'number' ? format(value) : value;
+      if (value === 'x') cell.className = 'unknown-value';
+      tr.append(cell);
+    });
+    body.append(tr);
+  });
+  $('#problem-data').replaceChildren(caption, head, body);
+  $('#problem-type').textContent = labels[question.type];
+  $('#problem-relation').textContent = problem.relation;
+  const direct = question.type === 'direct';
+  $('#problem-method').textContent = direct
+    ? 'Zuzeneko hiruko erregela: diagonalean biderkatu, eta ezagutzen dugun lehen magnitudearen balioaz zatitzen dugu.'
+    : 'Alderantzizko hiruko erregela: ezagutzen dugun bikotearen bi balioak biderkatu, eta lehen magnitudearen balio berriaz zatitzen dugu.';
+  const firstFactor = direct ? problem.targetX : problem.knownX;
+  const divisor = direct ? problem.knownX : problem.targetX;
+  const numerator = firstFactor * problem.knownY;
+  const solution = numerator / divisor;
+  $('#problem-calculation').textContent = `x = (${format(firstFactor)} × ${format(problem.knownY)}) / ${format(divisor)} = ${format(numerator)} / ${format(divisor)} = ${format(solution)} ${problem.unit}`;
+  $('#problem-result').textContent = problem.result;
+}
+
+function toggleSolution() {
+  const expanded = $('#solution-toggle').getAttribute('aria-expanded') !== 'true';
+  $('#solution-toggle').setAttribute('aria-expanded', String(expanded));
+  $('#problem-solution').hidden = !expanded;
+  $('#solution-toggle-label').textContent = expanded ? 'Ezkutatu ebazpena' : 'Ikusi ebazpena pausoz pauso';
+  $('#solution-toggle .toggle-symbol').textContent = expanded ? '−' : '+';
+  if (expanded) announce(`Ebazpena erakutsi da. ${problems[state.current].result}`);
 }
 
 function renderQuestion(focus = false) {
@@ -225,6 +283,7 @@ function restart() {
 
 answerButtons.forEach(button => button.addEventListener('click', () => answerQuestion(button.dataset.answer)));
 $('#next-button').addEventListener('click', nextQuestion);
+$('#solution-toggle').addEventListener('click', toggleSolution);
 $('#results-button').addEventListener('click', showResults);
 document.querySelectorAll('[data-open-guide]').forEach(button => button.addEventListener('click', () => $('#guide-dialog').showModal()));
 document.querySelectorAll('[data-restart]').forEach(button => button.addEventListener('click', () => {

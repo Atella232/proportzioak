@@ -7,8 +7,8 @@
     <meta name="description" content="Ikasi proportzionaltasun zuzena eta alderantzizkoa bereizten: eguneroko 30 egoera, berehalako zuzenketa eta adibide argiak. Guztia euskaraz.">
     <title>Proportzioak · Egin lotura</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./app.js"></script>
+    <link rel="stylesheet" href="./styles.css?v=2">
+    <script type="module" src="./app.js?v=2"></script>
   </head>
   <body>
     <a class="skip-link" href="#practice">Joan ariketara</a>
@@ -73,6 +73,21 @@
               <div class="feedback-heading"><span class="feedback-symbol" id="feedback-symbol" aria-hidden="true"></span><div><p class="feedback-kicker" id="feedback-kicker"></p><h4 id="feedback-title"></h4></div></div>
               <p id="explanation"></p>
               <div class="example-box"><div class="example-heading"><span>IKUS DEZAGUN ADIBIDE BAT</span><span aria-hidden="true">↘</span></div><table id="example-table"></table><p id="example-note"></p><div class="constant" id="constant"></div></div>
+              <section class="problem-box" aria-labelledby="problem-title">
+                <p class="eyebrow">ORAIN, EKIN PROBLEMARI</p>
+                <h5 id="problem-title">Ebatzi hiruko erregelarekin</h5>
+                <p class="problem-prompt" id="problem-prompt"></p>
+                <p class="problem-invitation">Saiatu zeure kabuz. Prest zaudenean, ikusi nola ebazten den.</p>
+                <button class="solution-toggle" id="solution-toggle" type="button" aria-expanded="false" aria-controls="problem-solution"><span id="solution-toggle-label">Ikusi ebazpena pausoz pauso</span><span class="toggle-symbol" aria-hidden="true">+</span></button>
+                <div id="problem-solution" hidden>
+                  <ol class="solution-steps">
+                    <li><h6>Datuak taulan jarri</h6><table id="problem-data"></table><p class="unknown-note">x da kalkulatu behar dugun balioa.</p></li>
+                    <li><h6>Erlazioa identifikatu</h6><p class="solution-type" id="problem-type"></p><p id="problem-relation"></p></li>
+                    <li><h6>Hiruko erregela aplikatu</h6><p id="problem-method"></p><p class="problem-calculation" id="problem-calculation"></p></li>
+                    <li><h6>Erantzuna idatzi</h6><p class="problem-result" id="problem-result"></p></li>
+                  </ol>
+                </div>
+              </section>
             </section>
             <div class="question-footer">
               <p id="question-hint"><span class="hint-dot" aria-hidden="true"></span> Aukeratu erantzun bat azalpena ikusteko.</p>
